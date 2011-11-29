@@ -1,0 +1,14 @@
+{
+  "name": "mysql-session-store",
+  "version": "0.0.1",
+  "description": "A session store for connect/express that uses the db-mysql package",
+  "keywords": ["session","mysql","connect","express"],
+  "author": "Sugendran Ganess",
+  "repository": "git://github.com/sugendran/mysql-session-store",
+  "main": "index.js",
+  "dependencies": {
+   "db-mysql": "0.x.x",
+   "generic-pool": "1.x.x"
+  },
+  "engine": "node >= 0.4.1"
+}

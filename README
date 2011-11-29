@@ -1,0 +1,32 @@
+MySQL Session Store for Connect and Express
+===========================================
+
+This session store makes use of the db-mysql package. It will create a table called '_mysql_session_store' in your database and store the sessions there.
+
+Usage:
+
+		npm install mysql-session-store
+		var MySQLSessionStore = require ("mysql-session-store");
+		new MySQLSessionStore(connect, options);
+
+The options are passed to db-mysql for connection creation. Please refer to their docs for these. There is a cleanup process that runs every minute to remove old sessions. This can be changed to a more suitable type by using the *checkUpInterval* option - it's in milliseconds. Set it to -1 to not remove old sessions.
+
+Example:
+
+		
+
+		var express = require("express"),
+			app = express.createServer(),
+			MySQLSessionStore = require ("mysql-session-store");
+
+		app.use(express.session({
+			store: new MySQLSessionStore(express, {
+				user: '<database username>',
+				password: '<database password>',
+				database: '<database name>',
+				hostname: '<server hostname>'
+			}),
+			secret: '<secret cookie>',
+			cookie: { maxAge: 4 * 7 * 24 * 60 * 60 * 1000 } // 4 weeks
+		}));
+
