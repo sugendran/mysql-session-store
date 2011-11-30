@@ -49,7 +49,6 @@ function SessionStore(connect, options) {
 
 
 SessionStore.prototype.get = function(sid, callback) {
-    console.log("getting session for: " + sid);
     var pool = this.pool;
     pool.acquire(function(err, db) {
         if (err) { throw err; }

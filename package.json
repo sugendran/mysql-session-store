@@ -1,6 +1,6 @@
 {
   "name": "mysql-session-store",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A session store for connect/express that uses the db-mysql package",
   "keywords": ["session","mysql","connect","express"],
   "author": "Sugendran Ganess",
