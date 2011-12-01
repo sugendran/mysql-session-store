@@ -95,7 +95,7 @@ SessionStore.prototype.destroy = function(sid, callback) {
         if (err) { throw err; }
         db.query().delete().from('_mysql_session_store').where('id = ?', [sid]).execute(function(e){
             pool.release(db);
-            callback(e);
+            callback && callback(e ? e : null);
         });
     });
 };
