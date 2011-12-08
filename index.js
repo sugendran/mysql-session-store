@@ -22,7 +22,7 @@ function SessionStore(connect, options) {
 
     pool.acquire(function(err, db) {
         if (err) { throw err; }
-        db.query().execute("CREATE  TABLE IF NOT EXISTS `_mysql_session_store` (`id` VARCHAR(255) NOT NULL, `expires` INT NULL, `data` TEXT NULL, PRIMARY KEY (`id`));",
+        db.query().execute("CREATE  TABLE IF NOT EXISTS `_mysql_session_store` (`id` VARCHAR(255) NOT NULL, `expires` BIGINT NULL, `data` TEXT NULL, PRIMARY KEY (`id`));",
             function(error, rows, cols){
                 pool.release(db);
                 if(error){ throw error; }
